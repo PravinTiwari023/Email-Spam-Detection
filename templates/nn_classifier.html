@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Network Classifier</title>  <!-- Change for NN Classifier -->
+    <style>
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            /* Other styles... */
+            background: linear-gradient(-45deg, #F781F3, #9FF781, #819FF7, #A4A4A4);
+            background-size: 400% 400%;
+            animation: gradientBG 5s ease infinite;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        textarea {
+            width: calc(100% - 20px);
+            height: 150px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .prediction {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Neural Network Email Spam Detection</h2>  <!-- Change for NN Classifier -->
+        <form action="/nb_classifier" method="post">  <!-- Change to /nn_classifier for NN Classifier -->
+            <textarea name="message" rows="10" cols="30" placeholder="Enter email text here..."></textarea>
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+        <div class="prediction">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
+</body>
+</html>
